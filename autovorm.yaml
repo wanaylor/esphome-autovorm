@@ -2,6 +2,13 @@ substitutions:
   name: autovorm
   device_description: "Control Technivorm Moccamaster"
 
+esphome:
+  name: ${name}
+  comment: ${device_description}
+  project:
+    name: "wanaylor.autovorm"
+    version: 0.1.0
+
 esp32:
   board: esp32dev
   framework: 
@@ -22,5 +29,10 @@ logger:
 switch:
   - platform: gpio
     pin: 32
-    name: "Main Power"
+    name: "Coffee Maker Power"
     id: autovorm_main_power
+
+  - platform: gpio
+    pin: 26
+    name: "Coffee Maker Hot Plate"
+    id: autovorm_hot_plate
